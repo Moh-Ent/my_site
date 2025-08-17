@@ -7,5 +7,7 @@ def bloghomepage(request):
     context = {'posts' : posts}
     return render(request, 'blog/blog-home.html', context)
 
-def blogdetailpage(request):
-    return render(request, 'blog/blog-single.html')
+def blogdetailpage(request, pid):
+    post = Post.objects.get(id=pid)
+    context = {'post':post}
+    return render(request, 'blog/blog-single.html', context)
