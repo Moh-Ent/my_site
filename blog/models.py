@@ -6,6 +6,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
+    image = models.ImageField(upload_to='blog', default='default.jpg')
     counted_views = models.IntegerField(default=0)
     is_published = models.BooleanField(default=False)
     published_date = models.DateTimeField(null=True)
